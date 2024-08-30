@@ -7,6 +7,35 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @OA\Post(
+ *     path="/api/todos",
+ *     summary="Create a new todo",
+ *     tags={"Todos"},
+ *     @OA\Parameter(
+ *         ref="#/components/parameters/acceptJsonHeader"
+ *     ),
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\JsonContent(
+ *             @OA\Property(property="name", type="string", description="Name of the todo", example="Learn Laravel"),
+ *             @OA\Property(property="description", type="string", description="Description of the todo", example="Complete the Laravel tutorial"),
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=201,
+ *         description="Todo created successfully",
+ *         @OA\JsonContent(ref="#/components/schemas/Todo")
+ *     ),
+ *     @OA\Response(
+ *         response=422,
+ *         description="Validation error",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="message", type="string", example="The name field is required.")
+ *         )
+ *     )
+ * )
+ */
 class TodoStoreController extends Controller
 {
     public function __invoke(Request $request)
@@ -24,4 +53,3 @@ class TodoStoreController extends Controller
         return response()->json($todo, 201);
     }
 }
-
