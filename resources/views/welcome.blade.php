@@ -21,7 +21,7 @@
     <body class="antialiased">
         <div class="navcontainer">
             <dile-nav class="mx-auto max-w-2xl">
-                <h1 slot="title">API sencilla para un "to do list"</h1>
+                <h1 slot="title">API sencilla para implementar un "to do list"</h1>
             </dile-nav>
         </div>
         <div class="mx-auto max-w-2xl">
