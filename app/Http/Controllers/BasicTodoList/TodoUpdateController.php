@@ -19,9 +19,9 @@ class TodoUpdateController extends Controller
         }
  
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'is_completed' => 'nullable|boolean',
+            'completed' => 'nullable|boolean',
         ]);
         if($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first()], 422);
