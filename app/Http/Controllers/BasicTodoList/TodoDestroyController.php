@@ -22,7 +22,7 @@ use Illuminate\Http\Response;
  *         @OA\Schema(type="integer")
  *     ),
  *     @OA\Response(
- *         response=204,
+ *         response=200,
  *         description="Todo deleted successfully",
  *         @OA\JsonContent(
  *             @OA\Property(property="message", type="string", example="Todo deleted successfully")

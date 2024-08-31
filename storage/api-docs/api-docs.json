@@ -178,7 +178,7 @@
                     }
                 ],
                 "responses": {
-                    "204": {
+                    "200": {
                         "description": "Todo deleted successfully",
                         "content": {
                             "application/json": {
