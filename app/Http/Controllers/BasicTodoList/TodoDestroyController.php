@@ -49,6 +49,6 @@ class TodoDestroyController extends Controller
 
         $todo->delete();
 
-        return response()->json(['message' => 'Todo deleted successfully'], Response::HTTP_NO_CONTENT);
+        return response()->json(['message' => 'Todo deleted successfully']);
     }
 }
