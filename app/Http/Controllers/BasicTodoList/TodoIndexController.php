@@ -27,6 +27,7 @@ class TodoIndexController extends Controller
 
     public function __invoke()
     {
+        sleep(1); // Solo para que se pueda ver bien la típica ruedita girando en las apps frontend
         $todos = Todo::all();
         return response()->json($todos);
     }
