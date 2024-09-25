@@ -49,7 +49,12 @@ class TodoStoreController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
-        $todo = Todo::create($request->all());
+        $todo = new Todo;
+        $todo->name = $request->name;
+        if($request->description) {
+            $todo->description = $request->description;
+        }
+        $todo->save();
 
         return response()->json($todo, 201);
     }

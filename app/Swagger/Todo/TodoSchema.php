@@ -13,7 +13,7 @@ use OpenApi\Annotations as OA;
  *         @OA\Property(property="id", type="integer", description="Todo ID. No se requiere indicar al insertar o editar"),
  *         @OA\Property(property="name", type="string", description="Todo name"),
  *         @OA\Property(property="description", type="string", description="Todo description"),
- *         @OA\Property(property="completed", type="boolean", description="Todo completion status"),
+ *         @OA\Property(property="completed", type="boolean", description="Todo completion status. Las tareas siempre se crean como no completadas. No se requiere este campo."),
  *     }
  * )
  */
