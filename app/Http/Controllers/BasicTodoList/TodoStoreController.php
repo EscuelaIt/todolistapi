@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Validator;
  *     ),
  *     @OA\RequestBody(
  *         required=true,
- *         @OA\JsonContent(
- *             @OA\Property(property="name", type="string", description="Name of the todo", example="Learn Laravel"),
- *             @OA\Property(property="description", type="string", description="Description of the todo", example="Complete the Laravel tutorial"),
+ *         description="Objeto de TODO a crear",
+ *         @OA\MediaType(
+ *            mediaType="application/x-www-form-urlencoded",
+ *            @OA\Schema(ref="#/components/schemas/Todo")
  *         )
  *     ),
  *     @OA\Response(

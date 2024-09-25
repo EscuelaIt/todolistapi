@@ -253,23 +253,12 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Objeto de TODO a crear",
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "application/x-www-form-urlencoded": {
                             "schema": {
-                                "properties": {
-                                    "name": {
-                                        "description": "Name of the todo",
-                                        "type": "string",
-                                        "example": "Learn Laravel"
-                                    },
-                                    "description": {
-                                        "description": "Description of the todo",
-                                        "type": "string",
-                                        "example": "Complete the Laravel tutorial"
-                                    }
-                                },
-                                "type": "object"
+                                "$ref": "#/components/schemas/Todo"
                             }
                         }
                     }
@@ -309,9 +298,12 @@
         "schemas": {
             "Todo": {
                 "title": "Todo",
+                "required": [
+                    "name"
+                ],
                 "properties": {
                     "id": {
-                        "description": "Todo ID",
+                        "description": "Todo ID. No se requiere indicar al insertar o editar",
                         "type": "integer"
                     },
                     "name": {
@@ -325,16 +317,6 @@
                     "completed": {
                         "description": "Todo completion status",
                         "type": "boolean"
-                    },
-                    "created_at": {
-                        "description": "Creation timestamp",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updated_at": {
-                        "description": "Last update timestamp",
-                        "type": "string",
-                        "format": "date-time"
                     }
                 },
                 "type": "object"
