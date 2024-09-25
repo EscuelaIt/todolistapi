@@ -315,7 +315,7 @@
                         "type": "string"
                     },
                     "completed": {
-                        "description": "Todo completion status",
+                        "description": "Todo completion status. Las tareas siempre se crean como no completadas. No se requiere este campo.",
                         "type": "boolean"
                     }
                 },
