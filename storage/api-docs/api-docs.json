@@ -86,28 +86,12 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Objeto de TODO a actualizar",
                     "required": true,
                     "content": {
-                        "application/json": {
+                        "application/x-www-form-urlencoded": {
                             "schema": {
-                                "properties": {
-                                    "name": {
-                                        "description": "Name of the todo",
-                                        "type": "string",
-                                        "example": "Learn Laravel"
-                                    },
-                                    "description": {
-                                        "description": "Description of the todo",
-                                        "type": "string",
-                                        "example": "Complete the Laravel tutorial"
-                                    },
-                                    "completed": {
-                                        "description": "Completion status of the todo",
-                                        "type": "boolean",
-                                        "example": false
-                                    }
-                                },
-                                "type": "object"
+                                "$ref": "#/components/schemas/Todo"
                             }
                         }
                     }
