@@ -76,6 +76,9 @@
                         "$ref": "#/components/parameters/acceptJsonHeader"
                     },
                     {
+                        "$ref": "#/components/parameters/requestedWith"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "ID of the todo to be updated",
@@ -89,7 +92,7 @@
                     "description": "Objeto de TODO a actualizar",
                     "required": true,
                     "content": {
-                        "application/x-www-form-urlencoded": {
+                        "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/Todo"
                             }
@@ -240,7 +243,7 @@
                     "description": "Objeto de TODO a crear",
                     "required": true,
                     "content": {
-                        "application/x-www-form-urlencoded": {
+                        "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/Todo"
                             }

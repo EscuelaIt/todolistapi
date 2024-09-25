@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Validator;
  *         required=true,
  *         description="Objeto de TODO a crear",
  *         @OA\MediaType(
- *            mediaType="application/x-www-form-urlencoded",
+ *            mediaType="application/json",
  *            @OA\Schema(ref="#/components/schemas/Todo")
  *         )
  *     ),
@@ -44,6 +44,7 @@ class TodoStoreController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'completed' => 'nullable|boolean',
         ]);
         if($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first()], 422);
@@ -52,8 +53,11 @@ class TodoStoreController extends Controller
         $todo = new Todo;
         $todo->name = $request->name;
         $todo->completed = false;
-        if($request->description) {
+        if($request->has('description')) {
             $todo->description = $request->description;
+        }
+        if($request->has('completed') ) {
+            $todo->completed = $request->completed;
         }
         $todo->save();
 

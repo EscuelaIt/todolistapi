@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Validator;
  *         ref="#/components/parameters/acceptJsonHeader"
  *     ),
  *     @OA\Parameter(
+ *         ref="#/components/parameters/requestedWith"
+ *     ),
+ *     @OA\Parameter(
  *         name="id",
  *         in="path",
  *         required=true,
@@ -27,7 +30,7 @@ use Illuminate\Support\Facades\Validator;
  *         required=true,
  *         description="Objeto de TODO a actualizar",
  *         @OA\MediaType(
- *            mediaType="application/x-www-form-urlencoded",
+ *            mediaType="application/json",
  *            @OA\Schema(ref="#/components/schemas/Todo")
  *         )
  *     ),
@@ -71,7 +74,14 @@ class TodoUpdateController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
-        $todo->update($request->all());
+        $todo->name = $request->name;
+        if($request->has('description')) {
+            $todo->description = $request->description;
+        }
+        if($request->has('completed') ) {
+            $todo->completed = $request->completed;
+        }
+        $todo->save();
 
         return response()->json($todo);
     }
