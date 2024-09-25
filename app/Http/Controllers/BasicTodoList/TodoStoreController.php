@@ -51,6 +51,7 @@ class TodoStoreController extends Controller
 
         $todo = new Todo;
         $todo->name = $request->name;
+        $todo->completed = false;
         if($request->description) {
             $todo->description = $request->description;
         }
